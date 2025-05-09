@@ -1,0 +1,274 @@
+.calendar-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.calendar-content {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: 720px;
+  max-width: 95%;
+  overflow: hidden;
+}
+
+.date-range-header {
+  padding: 16px 25px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+.tabs-container {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.calendar-tab {
+  flex: 1;
+  text-align: center;
+  padding: 16px;
+  color: #3366cc;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+
+.calendar-tab.active {
+  color: #3366cc;
+  font-weight: 600;
+}
+
+.calendar-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #3366cc;
+}
+
+.date-range-text {
+  font-size: 17px;
+  font-weight: 500;
+  color: #333;
+}
+
+.days-count {
+  background-color: #eef4ff;
+  color: #3366cc;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 16px;
+}
+
+.calendars-container {
+  display: flex;
+  align-items: stretch;
+  padding: 20px 20px;
+  position: relative;
+}
+
+.calendar-grid-container {
+  flex: 1;
+  padding: 0 15px;
+}
+
+.month-header {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  padding: 0;
+}
+
+.weekday {
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+  padding: 8px 0;
+  font-weight: 500;
+}
+
+.calendar-day {
+  position: relative;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.calendar-day:hover:not(.empty):not(.disabled) {
+  background-color: #f0f5ff;
+}
+
+.calendar-day.empty {
+  background: transparent;
+  cursor: default;
+}
+
+.calendar-day.today {
+  font-weight: 600;
+  color: #3366cc;
+}
+
+.calendar-day.selected {
+  background-color: #3366cc;
+  color: white;
+  font-weight: 500;
+  z-index: 2;
+}
+
+/* Range styling for dates */
+.calendar-day.in-range {
+  background-color: #e8f0ff;
+  color: #333;
+}
+
+/* Specific styling for start of range */
+.calendar-day.range-start {
+  background-color: #3366cc;
+  color: white;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Specific styling for end of range */
+.calendar-day.range-end {
+  background-color: #3366cc;
+  color: white;
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
+}
+
+/* When a day is the first day of the range */
+.calendar-day.selected.first-day {
+  border-top-left-radius: 22px;
+  border-bottom-left-radius: 22px;
+  background-color: #3366cc;
+}
+
+/* When a day is the last day of the range */
+.calendar-day.selected.last-day {
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
+  background-color: #3366cc;
+}
+
+.calendar-day.hover-highlight {
+  background-color: #eaf2ff;
+  border: 1px dashed #3366cc;
+}
+
+.calendar-day.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  color: #333;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+  color: #3366cc;
+}
+
+.nav-button.prev {
+  left: 5px;
+}
+
+.nav-button.next {
+  right: 5px;
+}
+
+.calendar-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 25px;
+  border-top: 1px solid #e0e0e0;
+  background-color: white;
+}
+
+.super-visa-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.super-visa-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #3366cc;
+}
+
+.super-visa-option label {
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.done-button {
+  background-color: #3366cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.done-button:hover {
+  background-color: #2855b8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(40, 85, 184, 0.2);
+}
+
+.done-button:disabled {
+  background-color: #a0b4db;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+} 

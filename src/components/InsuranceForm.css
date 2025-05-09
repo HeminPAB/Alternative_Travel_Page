@@ -1,0 +1,154 @@
+.insurance-form {
+  width: 100%;
+  text-align: left;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333333;
+  text-align: left;
+}
+
+/* Ensure labels in the form are black and visible */
+.form-group label,
+.coverage-option-label,
+.traveller-label {
+  color: #333333;
+  font-weight: 500;
+}
+
+/* Ensure consistent sizing of form controls */
+.form-control,
+.traveller-selector,
+.coverage-selector {
+  height: 40px;
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--light-border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-control::placeholder {
+  color: var(--text-light);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  padding-top: 28px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--light-border);
+  border-radius: 4px;
+  accent-color: var(--primary);
+}
+
+.checkbox-wrapper label {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  min-width: 200px;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .checkbox-group {
+    padding-top: 0;
+  }
+}
+
+/* Make sure all text elements are left-aligned by default */
+p, span, div, label, input, select, option {
+  text-align: left;
+}
+
+/* Checkbox row styling */
+.form-row.checkbox-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  gap: 15px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+/* Improve summaries in selectors to avoid line wrapping */
+.traveller-summary,
+.coverage-summary {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: calc(100% - 24px); /* Account for the dropdown icon */
+}
+
+/* Ensure the button isn't too squished */
+.form-group.button-group {
+  min-width: 150px;
+} 

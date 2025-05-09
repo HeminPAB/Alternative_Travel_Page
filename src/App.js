@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './components/Header';
+import InsuranceForm from './components/InsuranceForm';
+import InsuranceComparison from './components/InsuranceComparison';
+import BlogContent from './components/BlogContent';
+import Footer from './components/Footer';
+import './components/InsuranceComparison.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      
+      <div className="hero-section">
+        {/* Hero background image placeholder */}
+        <div className="hero-placeholder-note">
+          {/* Placeholder text removed */}
+        </div>
+        
+        <div className="hero-content">
+          {/* All text content removed from hero section */}
+        </div>
+        
+        <div className="form-container" id="get-quote">
+          <h2 className="section-heading"></h2>
+          <InsuranceForm />
+        </div>
+      </div>
+      
+      <div className="container">
+        <InsuranceComparison />
+        <BlogContent />
+      </div>
+      
+      <Footer />
     </div>
   );
 }
